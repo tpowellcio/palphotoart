@@ -1,20 +1,15 @@
 ---
-extends: base.j2
-default_block: main
-title: BASIC - A hyde website
-description: Home page for the BASIC hyde template
+title: Page name
+subtitle: Columns template
+description: Test description
 ---
 
-{% from "macros.j2" import render_excerpt with context %}
-<section class="blog_excerpt">
-{% set latest = site.content.walk_resources_sorted_by_time()|first %}
+{% extends "columns.j2" %}
 
-{% if latest -%}
-{{ render_excerpt(latest, 'post') }}
+{% block main %}
+## Main content
 
-<a class="button white medium"
-    href="{{ content_url(latest.url) }}">Read more&hellip;</a>
+[hyde-bootstrap](http://github.com/auzigog/hyde-bootstrap/) is a layout for Hyde based on the Bootstrap framework.
 
-{%- endif %}
-
-</section>
+This particular page is based on Bootstrap's [fluid.html.html](http://twitter.github.io/bootstrap/examples/fluid.html) example.
+{% endblock main %}

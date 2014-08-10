@@ -1,4 +1,0 @@
-palphotoart
-===========
-
-PalPhotoArt Website Infrastructure
