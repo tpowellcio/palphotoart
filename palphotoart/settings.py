@@ -3,15 +3,10 @@ import os
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = PACKAGE_ROOT
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-
-ADMINS = [
-    # ("Your Name", "your_email@example.com"),
-]
-
-MANAGERS = ADMINS
 
 DATABASES = {
     "default": {
@@ -77,8 +72,8 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-# Make this unique, and don"t share it with anybody.
-SECRET_KEY = "i^1kykkqv4^i1!bl%aak-pjip!)j9wc00)9+!sw-v#t(_)jo_u"
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = "n6562m6okqfqf0$dl8=l$!4-$+o^d(432$i2x&eda14sb&b@6m"
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = [
@@ -95,8 +90,8 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "django.core.context_processors.tz",
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
+    "account.context_processors.account",
     "pinax_theme_bootstrap.context_processors.theme",
-    "palphotoart.context_processors.settings",
 ]
 
 
@@ -110,7 +105,7 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = "palphotoart.urls"
 
-# Python dotted path to the WSGI application used by Django"s runserver.
+# Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = "palphotoart.wsgi.application"
 
 TEMPLATE_DIRS = [
@@ -131,7 +126,9 @@ INSTALLED_APPS = [
     "pinax_theme_bootstrap",
 
     # external
-    "biblion",
+    "account",
+    "eventlog",
+    "metron",
 
     # project
     "palphotoart",
@@ -171,3 +168,14 @@ FIXTURE_DIRS = [
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+ACCOUNT_OPEN_SIGNUP = True
+ACCOUNT_EMAIL_UNIQUE = True
+ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = False
+ACCOUNT_LOGIN_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_REDIRECT_URL = "home"
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
+
+AUTHENTICATION_BACKENDS = [
+    "account.auth_backends.UsernameAuthenticationBackend",
+]
