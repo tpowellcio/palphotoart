@@ -19,8 +19,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'wagtail.db',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'wagtaildemo',
         'USER': 'postgres',
         'PASSWORD': '',
         'HOST': '',  # Set to empty string for localhost.
