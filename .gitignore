@@ -10,4 +10,4 @@ deploy
 500.shtml
 default.html
 favicon.ico
-static
+#static
