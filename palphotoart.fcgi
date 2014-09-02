@@ -1,6 +1,6 @@
 #!/home6/archerbu/miniconda/envs/ppa/bin/python
 import sys, os
-project_name = "wtwebsite"
+project_name = "wagtaildemo"
 
 # Add a custom Python path.
 sys.path.insert(0, os.path.expanduser("~") + "/miniconda/envs/ppa")
