@@ -1,0 +1,83 @@
+---
+title: An Angry Post
+description: >
+    Temper. Temper. Temper.
+created: !!timestamp '2011-01-01 10:00:00'
+tags:
+    - angry
+    - thoughts
+---
+
+{% block content %}
+
+<div class="video">
+	<div class="container">
+		
+		<h1>Weddings</h1>
+		<div id="video-list"></div>
+
+		<!-- List Script -->
+		<script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				//source file is https://spreadsheets.google.com/feeds/list/1ChZq_0NYv3wNk8LlcoPbPWfp_0k6r8dG0cOwj8mx8Ng/od6/public/values?alt=json-in-script&callback=?
+
+				$(function listPosts(){
+					$.getJSON("https://spreadsheets.google.com/feeds/list/1ChZq_0NYv3wNk8LlcoPbPWfp_0k6r8dG0cOwj8mx8Ng/od6/public/values?alt=json-in-script&callback=?",
+					function (data) {
+						$('div#post-list').append('<ul class="items"></ul>');
+						var number = 0;
+						var allItems ='';
+						$.each(data.feed.entry, function(i,entry) {
+							var item = '<span style="display:none">' + entry.id.$t + '</span>';
+							// Event
+							if (entry.gsx$event.$t){
+								item += '<h2>' + entry.gsx$event.$t + '</h2>'
+							}
+							// Listing
+							else {
+								if ( entry.gsx$link.$t.indexOf('youtube') != -1 || entry.gsx$link.$t.indexOf('vimeo') != -1 ){
+									// Link
+									item += '<li>';
+									item += '<a class="lazyLoad" href="#v' + number + '" data-toggle="modal">' + entry.gsx$title.$t + ' - ' + entry.gsx$presenter.$t + '</a>';
+
+									// Modal
+									item += '<div id="v' + number + '" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="' + entry.gsx$title.$t + ' - ' + entry.gsx$presenter.$t + '" aria-hidden="true">';
+									item += '<div class="modal-header">';
+									item += '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+									item += '<h3><a href="' + entry.gsx$link.$t + '">' + entry.gsx$title.$t + ' - ' + entry.gsx$presenter.$t + '</a></h3></div>';
+									item += '<div class="modal-body">';
+									item += '<iframe src="about:blank" data-src="' + entry.gsx$link.$t + '" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen alt="'+ entry.gsx$title.$t + ' - ' + entry.gsx$presenter.$t + '"></iframe>';
+									item += '</div></div>'
+								}
+								else {
+									item += '<li>'
+									item += '<a href="' + entry.gsx$link.$t + '" target="_blank">' + entry.gsx$title.$t + ' - ' + entry.gsx$presenter.$t + '</a>';
+								}
+							}
+							item +='</span></li>';
+							$('.items').append(item);
+							number += 1;
+						});
+						
+					}).done(function(){
+						console.log("complete!");
+						$('.items').find('a.lazyLoad').click(function(){
+							iframe = $(this).next('div').find('iframe');
+							iframe.attr('src', iframe.data('src'));
+						});
+						$('.items').find('button.close').click(function(){
+							iframe = $(this).parent().next('div').find('iframe');
+							iframe.attr('src', 'about:blank');
+						})
+					});
+				});
+			});
+		</script> 
+
+	</div>
+</div>
+
+
+
+{% endblock content %}

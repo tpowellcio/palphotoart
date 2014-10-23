@@ -1,19 +1,33 @@
-!!python/unicode 'about.html': [macros.j2, base.j2, analytics.j2]
-!!python/unicode 'blog/angry-post.html': [blog.j2, macros.j2, base.j2, analytics.j2]
-!!python/unicode 'blog/atom.xml': [atom.j2, macros.j2]
-!!python/unicode 'blog/excerpts.xml': [atom.j2, macros.j2]
-!!python/unicode 'blog/happy-post.html': [blog.j2, macros.j2, base.j2, analytics.j2]
-!!python/unicode 'blog/index.html': [listing.j2, macros.j2, base.j2, analytics.j2]
-!!python/unicode 'blog/sad-post.html': [blog.j2, macros.j2, base.j2, analytics.j2]
-!!python/unicode 'blog/tags/angry.html': [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
-!!python/unicode 'blog/tags/happy.html': [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
-!!python/unicode 'blog/tags/sad.html': [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
-!!python/unicode 'blog/tags/thoughts.html': [macros.j2, base.j2, tagged_posts.j2,
-  analytics.j2]
-!!python/unicode 'index.html': [macros.j2, base.j2, analytics.j2]
+!!python/unicode 'about.html': [navbar.j2, head.j2, base.j2, analytics.j2, header.j2,
+  footer.j2, macros.j2]
+!!python/unicode 'blog/angry-post.html': [blog.j2, navbar.j2, head.j2, base.j2, analytics.j2,
+  header.j2, footer.j2, macros.j2]
+!!python/unicode 'blog/atom.xml': [!!python/unicode 'blog/sad-post.html', !!python/unicode 'blog/angry-post.html',
+  !!python/unicode 'blog/happy-post.html', atom.j2, macros.j2]
+!!python/unicode 'blog/excerpts.xml': [!!python/unicode 'blog/sad-post.html', !!python/unicode 'blog/angry-post.html',
+  !!python/unicode 'blog/happy-post.html', atom.j2, macros.j2]
+!!python/unicode 'blog/happy-post.html': [blog.j2, navbar.j2, head.j2, base.j2, analytics.j2,
+  header.j2, footer.j2, macros.j2]
+!!python/unicode 'blog/index.html': [!!python/unicode '/blog/angry-post.html', listing.j2,
+  navbar.j2, !!python/unicode '/blog/sad-post.html', head.j2, !!python/unicode '/blog/happy-post.html',
+  base.j2, analytics.j2, header.j2, footer.j2, macros.j2]
+!!python/unicode 'blog/sad-post.html': [blog.j2, navbar.j2, head.j2, base.j2, analytics.j2,
+  header.j2, footer.j2, macros.j2]
+!!python/unicode 'blog/tags/angry.html': [navbar.j2, head.j2, base.j2, tagged_posts.j2,
+  analytics.j2, header.j2, footer.j2, macros.j2]
+!!python/unicode 'blog/tags/happy.html': [navbar.j2, head.j2, base.j2, tagged_posts.j2,
+  analytics.j2, header.j2, footer.j2, macros.j2]
+!!python/unicode 'blog/tags/sad.html': [navbar.j2, head.j2, base.j2, tagged_posts.j2,
+  analytics.j2, header.j2, footer.j2, macros.j2]
+!!python/unicode 'blog/tags/thoughts.html': [navbar.j2, head.j2, base.j2, tagged_posts.j2,
+  analytics.j2, header.j2, footer.j2, macros.j2]
+!!python/unicode 'index.html': [navbar.j2, head.j2, !!python/unicode '/blog/happy-post.html',
+  base.j2, analytics.j2, header.j2, footer.j2, macros.j2]
 !!python/unicode 'media/css/site.css': []
+!!python/unicode 'media/css/style.css': []
 !!python/unicode 'media/css/syntax.css': []
 !!python/unicode 'media/js/libs/dd_belatedpng.js': []
 !!python/unicode 'media/js/libs/jquery-1.5.1.min.js': []
 !!python/unicode 'media/js/libs/modernizr-1.7.min.js': []
-!!python/unicode 'portfolio/index.html': [macros.j2, base.j2, analytics.j2]
+!!python/unicode 'portfolio/index.html': [navbar.j2, head.j2, base.j2, analytics.j2,
+  header.j2, footer.j2, macros.j2]

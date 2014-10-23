@@ -66,7 +66,7 @@ body{
 
 #container{
           background-color: #eaeaea;
-          width: 640px;
+          width: 100%;
          margin: 0 auto;
          padding: 12px;
 -moz-box-shadow: 0px 4px 12px #ccc; /* FF3.5+ */
@@ -239,15 +239,15 @@ section.content{
 }
 
 .listing img{
-    width: 120px;
-    height: 120px;
+    width: 80vh;
+    height: 100vh;
 }
 
 .listing li{
     background-color: #ededed;
     list-style-type: none;
     float: left;
-    width: 272px;
+    width: 95vw;
     margin-right: 24px;
     margin-bottom: 24px;
     padding: 12px;

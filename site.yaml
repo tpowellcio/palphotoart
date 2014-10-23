@@ -20,27 +20,33 @@ context:
                 type: page
                 url: index.html
             -
-                name: Portfolio
-                description: Portfolio
-                css_class: portfolio
+                name: Info
+                description: Info
+                css_class: info
                 type: node
-                url: portfolio
+                url: info.html
             -
-                name: Blog
-                description: Blog
+                name: Galleries
+                description: Galleries
                 css_class: blog
                 type: node
-                url: blog
+                url: galleries
             -
                 name: About
                 description: About
                 css_class: about
                 type: page
                 url: about.html
+            -
+                name: Subscribe
+                description: Subscribe
+                css_class: subscribe
+                type: page
+                url: subscribe.html
 meta:
     nodemeta: meta.yaml
     created: !!timestamp 2010-01-01 00:00:00
-    author: Lakshmi Vyasarajan
+    author: Troy Powell
 sorter:
     time:
         attr:
