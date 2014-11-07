@@ -20,9 +20,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'archerbu_wagtaildemo',
-        'USER': 'archerbu_ppauser',
-        'PASSWORD': 'XsD=$iDQQ*v)',
+        'NAME': 'wagtaildemo',
+        'USER': 'postgres',
+        'PASSWORD': '',
         'HOST': '',  # Set to empty string for localhost.
         'PORT': '',  # Set to empty string for default.
         'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
@@ -165,6 +165,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailsearch',
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
+    'wagtail.wagtailsites',
 
     'demo',
 )

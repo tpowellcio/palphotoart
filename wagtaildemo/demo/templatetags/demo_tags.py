@@ -1,3 +1,4 @@
+from datetime import date
 from django import template
 from django.conf import settings
 
@@ -74,7 +75,7 @@ def secondary_menu(context, calling_page=None):
 
         # If no children, get siblings instead
         if len(pages) == 0:
-            pages = calling_page.get_other_siblings().filter(
+            pages = calling_page.get_siblings(inclusive=False).filter(
                 live=True,
                 show_in_menus=True
             )
